@@ -1,13 +1,9 @@
 package com.redis.id.service;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * 全局ID
@@ -15,43 +11,38 @@ import java.time.format.DateTimeFormatter;
  * @author lizhifu
  * @date 2021/8/13
  */
-@Component
-@Order(value = 1)
-public class IdLocalGeneratorService implements CommandLineRunner {
+@Service
+public class IdLocalGeneratorService{
     @Resource
     private StringRedisTemplate stringRedisTemplate;
     private static final String ID_KEY = "ID:GENERATOR";
     /**
-     * 一次性获取数量标记
+     * 下一个ID
      */
-    private static Long num;
+    private long nextId = 0;
+
     /**
-     * 一次性获取数量标记
+     * 最大ID
      */
-    private static Long _num = 5L;
-    private Long start;
+    private long maxId = 0;
+    /**
+     * 缓存数量
+     */
+    private int cacheSize = 1;
     /**
      * 获取ID
      * @return
      */
-    public synchronized Long getId() {
-        if(num == 0){
-            increment();
+    public synchronized long getId() {
+        if (this.maxId == this.nextId) {
+            this.maxId = increment();
+            this.nextId = this.maxId - cacheSize + 1;
+        }else {
+            this.nextId++;
         }
-        num --;
-        LocalDateTime now = LocalDateTime.now();
-        String prefix = now.format(DateTimeFormatter.ofPattern("yyyyMMddHH"));
-        return Long.valueOf(prefix + String.format("%1$06d",start++));
+        return this.nextId;
     }
-
-    @Override
-    public void run(String... args) throws Exception {
-        increment();
-    }
-
-    private void increment(){
-        num = _num;
-        //当前数据是50065，增长5之后的数据为50070,50070-5=50065,开始数据的使用
-        start = stringRedisTemplate.opsForValue().increment(ID_KEY,_num) - _num;
+    private long increment(){
+        return stringRedisTemplate.opsForValue().increment(ID_KEY,cacheSize);
     }
 }
