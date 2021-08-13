@@ -8,5 +8,5 @@
 
  [全局ID](./redis-id/README.md)
 
-- [x] 数据库唯一ID
+- [x] 简单版本数据库唯一ID
 
