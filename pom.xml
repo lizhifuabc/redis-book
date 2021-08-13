@@ -5,7 +5,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>redis-lua</module>
-	</modules>
+        <module>redis-id</module>
+    </modules>
 	<groupId>com.guide</groupId>
 	<artifactId>redis-book</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
