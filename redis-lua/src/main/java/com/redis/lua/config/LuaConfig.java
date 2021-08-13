@@ -6,6 +6,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scripting.support.ResourceScriptSource;
 
+import java.util.List;
+
 /**
  * LUA配置
  *
@@ -39,6 +41,14 @@ public class LuaConfig {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
         redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("redis/integer.lua")));
         redisScript.setResultType(Long.class);
+        return redisScript;
+    }
+
+    @Bean
+    public DefaultRedisScript<List> listScript() {
+        DefaultRedisScript<List> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("redis/list.lua")));
+        redisScript.setResultType(List.class);
         return redisScript;
     }
 }

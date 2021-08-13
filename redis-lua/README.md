@@ -5,8 +5,15 @@
 LUA基础：
 
 - `tonumber`把字符串转换为数字
+
 - `tostring`则把数字转换为字符串
+
 - 把数字和空字符串连接起来，也可以达到`tostring`的效果：`10 .. ""`
+
+- ```lua
+  a = 5               -- 全局变量
+  local b = 5         -- 局部变量
+  ```
 
 如何打印日志：
 
@@ -78,10 +85,28 @@ public class StringScriptTest {
 
 - 存入redis数据时采用的是`StringRedisTemplate`，LUA表达是内要使用`tonumber`
 
+  ```java
+      /**
+       * Redis中的integer对应Java中的Long
+       * @return
+       */
+      @Bean
+      public DefaultRedisScript<Long> integerScript2() {
+          DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
+          redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("redis/integer.lua")));
+          redisScript.setResultType(Long.class);
+          return redisScript;
+      }
+  ```
+
   ```lua
   local value = redis.call('get',KEYS[1])
   -- 打印日志到reids
   redis.log(redis.LOG_NOTICE,value)
   return tonumber(value)
   ```
+
+### 返回List
+
+代码：`ListScriptTest`
 
