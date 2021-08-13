@@ -8,5 +8,6 @@
 
  [全局ID](./redis-id/README.md)
 
-- [x] 简单版本数据库唯一ID
+- [x] 简单版本数据库唯一ID：IdGeneratorService
+- [x] 增加本地缓存版本：IdLocalGeneratorService
 
