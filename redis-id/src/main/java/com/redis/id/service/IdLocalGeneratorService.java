@@ -21,23 +21,37 @@ public class IdLocalGeneratorService implements CommandLineRunner {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
     private static final String ID_KEY = "ID:GENERATOR";
-    private Long key;
+    /**
+     * 一次性获取数量标记
+     */
+    private static Long num;
+    /**
+     * 一次性获取数量标记
+     */
+    private static Long _num = 5L;
+    private Long start;
     /**
      * 获取ID
      * @return
      */
     public synchronized Long getId() {
-        if(key == 0){
-            key = stringRedisTemplate.opsForValue().increment(ID_KEY,10000);
+        if(num == 0){
+            increment();
         }
-        key--;
+        num --;
         LocalDateTime now = LocalDateTime.now();
         String prefix = now.format(DateTimeFormatter.ofPattern("yyyyMMddHH"));
-        return Long.valueOf(prefix + String.format("%1$06d",key));
+        return Long.valueOf(prefix + String.format("%1$06d",start++));
     }
 
     @Override
     public void run(String... args) throws Exception {
-        key = stringRedisTemplate.opsForValue().increment(ID_KEY,10000);
+        increment();
+    }
+
+    private void increment(){
+        num = _num;
+        //当前数据是50065，增长5之后的数据为50070,50070-5=50065,开始数据的使用
+        start = stringRedisTemplate.opsForValue().increment(ID_KEY,_num) - _num;
     }
 }
