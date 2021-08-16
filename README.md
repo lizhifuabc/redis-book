@@ -26,3 +26,6 @@ Gitee地址：[redis-book: redis笔记 (gitee.com)](https://gitee.com/lizhifu/re
 - [x] setbit理解测试：TestOffset
 - [x] 位图统计用户登录：UserLoginService
 
+ [收藏、点赞等等](./redis-collect/README.md)
+
+- [x] 收藏

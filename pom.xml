@@ -8,6 +8,7 @@
         <module>redis-id</module>
         <module>redis-rank</module>
 		<module>redis-bitmap</module>
+		<module>redis-collect</module>
 	</modules>
 	<groupId>com.guide</groupId>
 	<artifactId>redis-book</artifactId>
