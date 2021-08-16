@@ -24,5 +24,5 @@ Gitee地址：[redis-book: redis笔记 (gitee.com)](https://gitee.com/lizhifu/re
  [位图(bitmap)](./redis-bitmap/README.md)
 
 - [x] setbit理解测试：TestOffset
-- [ ] 位图统计用户登录：UserLoginService
+- [x] 位图统计用户登录：UserLoginService
 
