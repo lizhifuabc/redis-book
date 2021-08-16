@@ -1,5 +1,11 @@
 # Redis使用场景
 
+GitHub实时更新，Gitee会同步GitHub上面的内容。
+
+GitHub地址：[lizhifuabc/redis-book: redis笔记 (github.com)](https://github.com/lizhifuabc/redis-book)
+
+Gitee地址：[redis-book: redis笔记 (gitee.com)](https://gitee.com/lizhifu/redis-book)
+
  [LUA脚本](./redis-lua/README.md)
 
 - [x] 返回String
