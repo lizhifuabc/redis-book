@@ -15,3 +15,7 @@
 
 - [x] 使用Redis 有序集合(sorted set)实现热榜：RankService
 
+ [位图(bitmap)](./redis-bitmap/README.md)
+
+- [ ] 位图统计用户登录
+
