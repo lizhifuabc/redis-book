@@ -6,6 +6,7 @@
 	<modules>
 		<module>redis-lua</module>
         <module>redis-id</module>
+        <module>redis-rank</module>
     </modules>
 	<groupId>com.guide</groupId>
 	<artifactId>redis-book</artifactId>

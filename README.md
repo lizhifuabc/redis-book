@@ -11,3 +11,7 @@
 - [x] 简单版本数据库唯一ID：IdGeneratorService
 - [x] 增加本地缓存版本：IdLocalGeneratorService
 
+ [排行榜](./redis-rank/README.md)
+
+- [x] 使用Redis 有序集合(sorted set)实现热榜：RankService
+
