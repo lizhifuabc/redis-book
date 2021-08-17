@@ -34,3 +34,8 @@ Gitee地址：[redis-book: redis笔记 (gitee.com)](https://gitee.com/lizhifu/re
 
 - [x] 普通方式实现：LockService
 - [x] 基于Redlock：RedlockService
+
+ [地理位置距离计算](./redis-geo/README.md)
+
+- [x] 基本用法：GeoService
+

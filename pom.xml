@@ -10,7 +10,8 @@
 		<module>redis-bitmap</module>
 		<module>redis-collect</module>
         <module>redis-lock</module>
-    </modules>
+		<module>redis-geo</module>
+	</modules>
 	<groupId>com.guide</groupId>
 	<artifactId>redis-book</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
