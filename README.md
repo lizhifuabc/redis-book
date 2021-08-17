@@ -1,3 +1,8 @@
+# 写在前面
+
+- redis官网：[Redis](https://redis.io/)
+- redis中文网：[redis中文官方网站](http://www.redis.cn/)
+
 # Redis使用场景
 
 GitHub实时更新，Gitee会同步GitHub上面的内容。
