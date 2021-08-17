@@ -9,7 +9,8 @@
         <module>redis-rank</module>
 		<module>redis-bitmap</module>
 		<module>redis-collect</module>
-	</modules>
+        <module>redis-lock</module>
+    </modules>
 	<groupId>com.guide</groupId>
 	<artifactId>redis-book</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

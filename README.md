@@ -29,3 +29,8 @@ Gitee地址：[redis-book: redis笔记 (gitee.com)](https://gitee.com/lizhifu/re
  [收藏、点赞等等](./redis-collect/README.md)
 
 - [x] 收藏
+
+ [分布式锁](./redis-lock/README.md)
+
+- [x] 普通方式实现：LockService
+- [x] 基于Redlock：RedlockService
